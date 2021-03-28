@@ -14,3 +14,17 @@ I. Về hiển thị
 II. Về actions
 
 II. Về api clients
+
+# Co test redux
+
+https://qiita.com/Hitomi_Nagano/items/df30da9086b705532aca
+
+# Test hien thi
+
+https://blog.usejournal.com/testing-with-jest-and-enzyme-in-react-part-3-best-practices-when-testing-with-jest-and-enzyme-ae3fe0c39d06
+
+# Khong phai dung enzyme
+
+https://redux.js.org/recipes/writing-tests
+
+
