@@ -14,7 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { Translate } from "react-localize-redux";
-import { State } from "../../stores/reducer"
+import { SignUpPageActions } from "../../stores/SignUpPage/action";
+import { State } from "../../stores/reducer";
+import { UserSignUp } from "../../models/User";
 import { withLocalize, LocalizeContextProps } from "react-localize-redux";
 
 export function Copyright() {
@@ -169,16 +171,6 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
     event
   ) => {
     setConfirmUserPassword(event.target.value);
-
-    if (!isNullOrEmpty(event.target.value)) {
-      if (!checkConfirmUserPassword(event.target.value)) {
-        setConfirmUserPasswordIsError(true);
-
-        return;
-      }
-    }
-
-    setConfirmUserPasswordIsError(false);
   };
 
   // サインインアップボタンを押下する
@@ -202,6 +194,16 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
     //     })
     //   )
     // );
+    dispatch(
+      SignUpPageActions.signUp(
+        new UserSignUp({
+          userName: "test123456",
+          userPassword: "123456",
+          language: "ja",
+          role: "administrator",
+        })
+      )
+    );
   };
 
   // エンターキーを押下する
@@ -242,7 +244,7 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
       <div className={classes.paper}>
         <Avatar className={classes.avatar} />
 
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" id="sign-up">
           Sign Up
         </Typography>
 
@@ -256,7 +258,7 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
                 variant="outlined"
                 required
                 fullWidth
-                id="userName"
+                id="ç"
                 label="Username"
                 autoFocus
                 onChange={handleUserNameChange}
@@ -278,9 +280,7 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
                 autoComplete="current-password"
                 onChange={handleUserPasswordChange}
                 onKeyPress={handleKeyPress}
-                helperText={
-                  userPasswordIsError ? "Password is correct" : ""
-                }
+                helperText={userPasswordIsError ? "Password is correct" : ""}
               />
             </Grid>
 
@@ -298,7 +298,9 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
                 onChange={handleConfirmUserPasswordChange}
                 onKeyPress={handleKeyPress}
                 helperText={
-                  confirmUserPasswordIsError ? "Confirm password is correct" : ""
+                  confirmUserPasswordIsError
+                    ? "Confirm password is correct"
+                    : ""
                 }
               />
             </Grid>
@@ -317,11 +319,11 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
           </Grid>
 
           <Button
+            id="sign-up"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
-            disabled={isButtonDisabled}
             onClick={handleSignUpClick}
           >
             Sign Up
