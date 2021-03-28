@@ -27,4 +27,6 @@ https://blog.usejournal.com/testing-with-jest-and-enzyme-in-react-part-3-best-pr
 
 https://redux.js.org/recipes/writing-tests
 
+# typescript + react dom
 
+https://typescript-jp.gitbook.io/deep-dive/intro-1/jest
