@@ -6,38 +6,32 @@ import { shallow } from "enzyme";
 import SignUpPage from "../components/SignUpPage/SignUpPage";
 import { createShallow, createMount } from "@material-ui/core/test-utils";
 
-describe("HelloComponent", () => {
-  test("starts counter on 0", () => {
-    const wrapper = shallow(<SignUpPage />);
+// describe("HelloComponent", () => {
+//   const mount = createMount(<SignUpPage />);
+//   const wrapper = mount()
+//   test("starts counter on 0", () => {
+//     // const wrapper = shallow(<SignUpPage />);
 
-    // 初めて画面を表示する
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('.in-bar')).to.have.lengthOf(0);
+//     // 初めて画面を表示する
+//     expect(wrapper).toMatchSnapshot();
 
-  });
-});
-function Bar() {
-    return (
-      <div>
-        <div className="in-bar" />
-      </div>
-    );
-  }
+//   });
+// });
+// function Bar() {
+//     return (
+//       <div>
+//         <div className="in-bar" />
+//       </div>
+//     );
+//   }
 
-function Foo() {
-    return (
-      <div>
-        <Bar />
-      </div>
-    );
-  }
-
-const wrapper = shallow(<Foo />);
-expect(wrapper.find('.in-bar')).toBe()
-expect(wrapper.find(Bar)).to.have.lengthOf(1);
-expect(wrapper.find(Bar).dive().find('.in-bar')).to.have.lengthOf(1);
-
-
+// function Foo() {
+//     return (
+//       <div>
+//         <Bar />
+//       </div>
+//     );
+//   }
 
 // describe("<SignUpPage /> interactions", () => {
 //   it("should call the onClick function when 'Add Comment' button is clicked", () => {

@@ -17,7 +17,7 @@ import { Translate } from "react-localize-redux";
 import { SignUpPageActions } from "../../stores/SignUpPage/action";
 import { State } from "../../stores/reducer";
 import { UserSignUp } from "../../models/User";
-import { withLocalize, LocalizeContextProps } from "react-localize-redux";
+import { LocalizeContextProps } from "react-localize-redux";
 
 export function Copyright() {
   return (
@@ -66,7 +66,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
+function SignUpPage() {
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -346,4 +346,4 @@ function SignUpPage({ translate, activeLanguage }: LocalizeContextProps) {
   );
 }
 
-export default withLocalize(SignUpPage);
+export default SignUpPage;
