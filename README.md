@@ -30,3 +30,7 @@ https://redux.js.org/recipes/writing-tests
 # typescript + react dom
 
 https://typescript-jp.gitbook.io/deep-dive/intro-1/jest
+
+# install rewired
+
+npm install --save-dev react-app-rewired react-app-rewire-alias
