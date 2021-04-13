@@ -34,3 +34,5 @@ https://typescript-jp.gitbook.io/deep-dive/intro-1/jest
 # install rewired
 
 npm install --save-dev react-app-rewired react-app-rewire-alias
+
+https://www.npmjs.com/package/react-app-rewire-alias
