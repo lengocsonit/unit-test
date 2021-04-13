@@ -220,11 +220,31 @@ function SignUpPage() {
     setAgreeCheckBox(event.target.checked);
   };
 
+  const selectionDefaults = ["1", "2", "3", "SS"];
+  const selectionDisabled = ["1", "2", "3", "4", "5", "SS"];
+
+  const selectionAll = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  const checkedHidden = selectionDefaults.filter((value) =>
+    selectionDisabled.includes(value)
+  );
+
+  const unCheckedHidden = selectionDisabled.filter(
+    (value) => !selectionDefaults.includes(value)
+  );
+
+  const result = selectionAll.filter(
+    (value) => !unCheckedHidden.includes(value)
+  );
+
+  const result2 = Array.from(new Set(result.concat(checkedHidden)));
+
+  // 3 TH
+
   // サインアップボタンの状態を更新する
 
   useEffect(() => {
     // ユーザ名＆パスワード＆チェックボックスチェック確認
-
+    console.log(checkedHidden);
     const checkError =
       !userNameIsError &&
       !userPasswordIsError &&
@@ -246,7 +266,9 @@ function SignUpPage() {
 
         <Typography component="h1" variant="h5" id="sign-up">
           Sign Up
+          {checkedHidden}
         </Typography>
+        {result2}
 
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
