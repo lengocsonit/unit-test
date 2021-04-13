@@ -17,8 +17,8 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "jest --collectCoverage",
     "eject": "react-scripts eject"
   },
@@ -59,6 +59,8 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.1",
     "jest": "^26.6.0",
+    "react-app-rewire-alias": "^1.0.3",
+    "react-app-rewired": "^2.1.8",
     "react-localize-redux": "^3.5.3",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",

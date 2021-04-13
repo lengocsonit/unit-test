@@ -18,6 +18,7 @@ import { SignUpPageActions } from "../../stores/SignUpPage/action";
 import { State } from "../../stores/reducer";
 import { UserSignUp } from "../../models/User";
 import { LocalizeContextProps } from "react-localize-redux";
+import config from "@config/config.json";
 
 export function Copyright() {
   return (
@@ -177,7 +178,7 @@ function SignUpPage() {
   const handleSignUpClick = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    signUpHandle();
+    // signUpHandle();
   };
 
   // サインアップ実行
@@ -236,6 +237,8 @@ function SignUpPage() {
     (value) => !unCheckedHidden.includes(value)
   );
 
+  const con = config;
+
   const result2 = Array.from(new Set(result.concat(checkedHidden)));
 
   // 3 TH
@@ -266,9 +269,8 @@ function SignUpPage() {
 
         <Typography component="h1" variant="h5" id="sign-up">
           Sign Up
-          {checkedHidden}
         </Typography>
-        {result2}
+        {config.port}
 
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
